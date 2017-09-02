@@ -1,4 +1,4 @@
-ubuntuInitialSettingsPath="$GitHubPath/ubuntu-initial-settings"
+systemInitialSettingsPath="."
 # Remove packages
 sudo apt-get purge gv libreoffice* openoffice* remmina firefox unity-lens-photos onboard shotwell gnome-contacts imagemagick aisleriot activity-log-manager gucharmap webbrowser-app rhythmbox cheese xdiagnose thunderbird gnome-online-accounts gnome-orca xterm simple-scan gnome-system-log seahorse gnome-disk-utility gnome-font-viewer brasero empathy evolution gnome-documents gnome-maps gnome-music gnome-photos baobab
 
@@ -15,20 +15,20 @@ xdg-open https://avocode.com/download
 sudo apt update && sudo apt install gparted
 
 # Change system files
-systemFilesToReinstallPath="$ubuntuInitialSettingsPath/system-files-to-reinstall"
+systemFilesToReinstallPath="$systemInitialSettingsPath/system-files-to-reinstall"
 
 environmentPath="/etc/environment"
 bashrcPath="~"
 sudo rm $environmentPath && sudo cp $systemFilesToReinstallPath/environment $environmentPath
 sudo rm $bashrcPath && sudo cp $systemFilesToReinstallPath/.bashrc $bashrcPath
 
-chmod +x $ubuntuInitialSettingsPath/scripts/*
-cp $ubuntuInitialSettingsPath/scripts ~/.bashrc
+chmod +x $systemInitialSettingsPath/scripts/*
+cp $systemInitialSettingsPath/scripts ~/.bashrc
 
 # Move windows icons to left corner
 gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"
 
-appearancePath="$ubuntuInitialSettingsPath/appearance"
+appearancePath="$systemInitialSettingsPath/appearance"
 
 # Set fonts
 fontsPath="/usr/share/fonts"
